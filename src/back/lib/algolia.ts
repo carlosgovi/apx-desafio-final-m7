@@ -1,5 +1,8 @@
 import algoliasearch from "algoliasearch";
 
-const client = algoliasearch("M9QTOU105A", "042ac9a48708713531fbebcd68b6fc81");
+const client = algoliasearch(
+  process.env.ALGOLIA_CLIENT,
+  process.env.ALGOLIA_PASS
+);
 const index = client.initIndex("products");
 export { index };
