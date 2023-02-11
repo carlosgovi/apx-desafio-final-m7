@@ -86,13 +86,13 @@ app.post("/auth/token", async (req, res) => {
       password: passwordHasheado,
     },
   });
-  const idUserEnauth: any = auth.get("user_id");
-  const user = await User.findByPk(idUserEnauth);
-  const fullname = user.get("fullname");
-  //en el token guardo el token generado para ese user
-  const token = jwt.sign({ id: auth.get("user_id") }, SECRET);
-
   if (auth) {
+    const idUserEnauth: any = auth.get("user_id");
+    const user = await User.findByPk(idUserEnauth);
+    const fullname = user.get("fullname");
+    //en el token guardo el token generado para ese user
+    const token = jwt.sign({ id: auth.get("user_id") }, SECRET);
+
     res.json({ token, fullname });
   } else {
     res.status(400).json({ error: "email o password incorrecto" });
@@ -101,9 +101,6 @@ app.post("/auth/token", async (req, res) => {
 ////CREANDO  middleware para la auth (si la verificacion de los datos es correcta sigue el codigo " next() ") ///////////+++++++++++++++++
 
 function authMiddleware(req, res, next) {
-  // console.log("req_body", req.body);
-  // console.log("headers", req.headers);
-
   //uso el split para separar el dato de el token
   const token = req.headers.authorization.split(" ")[1];
   //manejo el verificacion con un try catch

@@ -143,6 +143,9 @@ const state = {
       .then((response) => response.json())
       .then((data) => {
         console.log("respuesta del fetch a ::/auth/token:::", data);
+        if (data.error) {
+          return alert(data.error);
+        }
         const currentState = this.getState();
         currentState.token = data.token;
         currentState.fullname = data.fullname;

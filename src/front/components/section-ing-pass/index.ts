@@ -159,7 +159,7 @@ export function initSectionIngrPass() {
           e.preventDefault();
 
           const password = e.target.password.value;
-          console.log({ password });
+
           state.singIng(password);
         });
       }
