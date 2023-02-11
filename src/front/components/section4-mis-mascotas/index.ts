@@ -517,6 +517,9 @@ export function initSection4MisMascotas() {
                     "respuesta del fetch a ::eliminar Animal:::",
                     data
                   );
+                  if (data.status == 200) {
+                    Router.go("/");
+                  }
                 });
               });
               //enviar form
