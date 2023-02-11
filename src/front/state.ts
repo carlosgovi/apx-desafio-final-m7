@@ -1,4 +1,4 @@
-const API_BASE_URL = process.env.API_BASE_URL || "http://localhost:3000"; //url del server
+const API_BASE_URL = process.env.API_BASE_URL; //url del server
 
 import map from "lodash/map";
 import { Router } from "@vaadin/router";
