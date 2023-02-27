@@ -234,7 +234,7 @@ app.post("/email", async (req: any, res) => {
     from: "cgovi66@gmail.com", // Change to your verified sender
     subject: `  ${nombre} tiene datos sobre tu mascota perdida `,
     text: `  ${nombre} Te a dejado este mensaje en nuestro box `,
-    html: `<strong>encontramos tu mascota comunicate con este N°tel:${telefono}</strong>`,
+    html: `<strong>encontramos tu mascota comunicate con este N°tel:${telefono} <br/>${nombre} Te a dejado este mensaje en nuestro box:== ${dato} == </strong>`,
   };
   sgMail
     .send(msg)
